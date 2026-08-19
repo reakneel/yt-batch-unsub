@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Batch Unsubscribe Manager",
+  "version": "1.2.0",
+  "description": "Batch unsubscribe from YouTube channels with whitelist, smart selection, history & restore. Privacy-first.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://www.youtube.com/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "YouTube Batch Unsubscribe"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/feed/channels*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
