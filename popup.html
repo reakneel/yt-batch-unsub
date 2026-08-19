@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 340px;
+      padding: 14px;
+      font-family: system-ui, sans-serif;
+      background: #0f0f0f;
+      color: #f1f1f1;
+      margin: 0;
+    }
+    h2 { margin: 0 0 6px; font-size: 16px; color: #ff0000; }
+    .version { font-size: 11px; color: #888; margin-bottom: 12px; }
+    textarea, .history-list {
+      width: 100%;
+      background: #212121;
+      border: 1px solid #3f3f3f;
+      border-radius: 8px;
+      color: #f1f1f1;
+      padding: 8px;
+      font-size: 13px;
+      box-sizing: border-box;
+    }
+    textarea { height: 110px; resize: vertical; }
+    .history-list { max-height: 180px; overflow-y: auto; margin-top: 8px; }
+    .history-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 0;
+      border-bottom: 1px solid #333;
+      font-size: 12px;
+    }
+    .history-item button {
+      background: #3ea6ff;
+      color: #000;
+      border: none;
+      border-radius: 12px;
+      padding: 3px 10px;
+      font-size: 11px;
+      cursor: pointer;
+    }
+    button.main {
+      margin-top: 10px;
+      width: 100%;
+      padding: 10px;
+      background: #ff0000;
+      color: white;
+      border: none;
+      border-radius: 18px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .hint { font-size: 11px; color: #aaa; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <h2>YouTube Batch Unsubscribe</h2>
+  <div class="version">v1.2.0</div>
+
+  <h3 style="margin:12px 0 6px;font-size:13px;">Whitelist (Keep)</h3>
+  <textarea id="whitelist" placeholder="one name per line"></textarea>
+  <button class="main" id="saveWhitelist">Save Whitelist</button>
+
+  <h3 style="margin:16px 0 6px;font-size:13px;">Recent Unsubscribed (Restore)</h3>
+  <div class="history-list" id="historyList">Loading...</div>
+  <div class="hint">Click Resubscribe to restore a channel. History is stored locally only.</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
